@@ -16,7 +16,13 @@ export default function Register() {
     }
   }, [router]);
 
-  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    age: "",
+    contact: "",
+    student: false,
+  });
   const [error, setError] = useState({ email: "", password: "", name: "" });
 
   const handleSubmit = async (e) => {
@@ -48,10 +54,10 @@ export default function Register() {
   return (
     <>
       <NavBar />
-      <div className="w-full h-screen bg-gray-200 ">
-        <div className="flex flex-col text-center items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0 shadow-xl">
-          <div className="w-full bg-white rounded-lg shadow dark:border text-black md:mt-0 sm:max-w-md xl:p-0 px-2 -mx-2">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+      <div className="w-full h-screen  bg-gray-200 px-2 -mx-2">
+        <div className="flex mb-4  text-center items-center justify-center py-8 px-2mx-auto h-screen lg:py-0 shadow-xl">
+          <div className="w-1/2 bg-white rounded-lg shadow dark:border text-black md:mt-0 sm:max-w-md xl:p-0 ">
+            <div className="p-9 space-y-3 md:space-y-9 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                 Register your account
               </h1>
@@ -73,8 +79,8 @@ export default function Register() {
                     }
                     type="text"
                     name="name"
-                    id="namw"
-                    className="bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5"
+                    id="name"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
                     placeholder="Name"
                     required=""
                   />
@@ -126,10 +132,54 @@ export default function Register() {
                     <p className="text-sm text-red-500">{error.password}</p>
                   )}
                 </div>
+                <div className="text-left">
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
+                    Password
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="••••••••"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5"
+                    required=""
+                  />
+                  {error.password && (
+                    <p className="text-sm text-red-500">{error.password}</p>
+                  )}
+                </div>
+                <div className="text-left">
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-gray-900 "
+                  >
+                    Password
+                  </label>
+                  <input
+                    onChange={(e) =>
+                      setFormData({ ...formData, password: e.target.value })
+                    }
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="••••••••"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-600 focus:border-indigo-600 block w-full p-2.5"
+                    required=""
+                  />
+                  {error.password && (
+                    <p className="text-sm text-red-500">{error.password}</p>
+                  )}
+                </div>
 
                 <button
                   type="submit"
-                  className="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                  className="w-full text-whitebg-gradient-to-b from-gray-900 to-gray-600 bg-gradient-to-r hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center text-white  "
                 >
                   Sign Up
                 </button>
@@ -143,6 +193,30 @@ export default function Register() {
                   </Link>
                 </p>
               </form>
+            </div>
+          </div>
+          <div className="w-1/6 bg-gray-200"></div>
+          <div className="w-2/6 items-center rounded-lg bg-gradient-to-r from-rose-400 to-orange-300 ">
+            {/* <div className="text-center">
+              <img
+                className="mx-auto w-48"
+                src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                alt="logo"
+              />
+              <h4 className=" mt-1 pb-1 text-xl font-semibold">
+                We are The Lotus Team
+              </h4>
+            </div> */}
+            <div className="px-4 py-6 text-white md:mx-6 md:p-12">
+              <h4 className="mb-6 text-xl font-semibold">
+                We are more than just a company
+              </h4>
+              <p className="text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
             </div>
           </div>
         </div>
