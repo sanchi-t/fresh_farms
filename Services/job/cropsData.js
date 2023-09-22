@@ -22,7 +22,7 @@ export const fetchCrops = async () => {
 export const modifyCrops = async (_id,cropName,quantity) => {
   try {
     const res = await fetch("/api/job/cropsData", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${Cookies.get("token")}`
@@ -43,13 +43,25 @@ export const modifyCrops = async (_id,cropName,quantity) => {
 };
 
 // Get bookmarked crops
-export const getBookmarkedCrops = async () => {
+export const postCropForSale = async (userId, cropName, quantity, price, description, place, images) => {
   try {
-    const res = await fetch("/api/farmers/job/bookmarks", {
-      method: "GET",
+    const res = await fetch("/api/job/cropsData", {
+      method: "POST",
       headers: {
+        "Content-Type": "application/json",
         "Authorization": `Bearer ${Cookies.get("token")}`
-      }
+      },
+      body: JSON.stringify({
+        userId: userId,
+        cropName: cropName,
+        quantity: quantity,
+        price: price,
+        description: description,
+        place: place,
+        images: images,
+
+
+      }),
     });
 
     const data = await res.json();
@@ -61,21 +73,19 @@ export const getBookmarkedCrops = async () => {
 };
 
 // Unbookmark a crop
-export const unbookmarkCrop = async (cropId) => {
+export const userCrops = async (email) => {
   try {
-    const res = await fetch("/api/farmers/crops/bookmark", {
-      method: "DELETE",
+    const res = await fetch(`/api/job/userCrops?email=${email}`, {
+      method: "GET",
       headers: {
-        "Authorization": `Bearer ${Cookies.get("token")}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ cropId })
+        "Authorization": `Bearer ${Cookies.get("token")}`
+      }
     });
 
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log("Error unbookmarking crop: ", error);
-    throw error;
+    console.log("Error fetching crops: ", error);
+    throw error; // Optionally, you can rethrow the error to handle it in the calling code.
   }
 };

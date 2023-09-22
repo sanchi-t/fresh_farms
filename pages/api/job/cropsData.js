@@ -1,5 +1,6 @@
 import connectDB from '@/components/DB/connectDB'
 import Farmer from '@/models/Farmer';
+import User from '@/models/User';
 import validateToken from '@/middleware/tokenValidation';
 import Joi from 'joi';
 
@@ -16,6 +17,11 @@ export default async (req, res) => {
   await connectDB();
   const { method } = req;
   switch (method) {
+    case 'PUT':
+      await validateToken(req, res, async () => {
+        await boughtCropFromSale(req, res);
+      });
+      break;
     case 'POST':
       await validateToken(req, res, async () => {
         await postCropForSale(req, res);
@@ -31,10 +37,10 @@ export default async (req, res) => {
   }
 }
 
-const postCropForSale = async (req, res) => {
+const boughtCropFromSale = async (req, res) => {
   try {
     const { farmerId, cropName, quantity } = req.body;
-
+    console.log(req.body,'gvhjxcbscbdsbcsdjdb');
     // Find the farmer and crop
     const farmer = await Farmer.findById(farmerId);
     if (!farmer) {
@@ -62,6 +68,69 @@ const postCropForSale = async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+
+const postCropForSale = async (req, res) => {
+  try {
+    const { userId, cropName, quantity, price, description, place, images } = req.body;
+
+    // Find the user by userId
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Check if the user is already in the farmers table
+    let farmer = await Farmer.findOne({ email: user.email });
+
+    if (!farmer) {
+      // If the user is not in the farmers table, create a new farmer entry
+      farmer = new Farmer({
+        name: user.name,
+        email: user.email,
+        address: user.address,
+        phoneNumber: String(user.contact),
+        crops: [], // Initialize the crops array
+      });
+    }
+
+    // Check if the crop with the same name already exists in the farmer's crops array
+    const cropIndex = farmer.crops.findIndex((c) => c.cropName === cropName);
+
+    if (cropIndex === -1) {
+      // Crop not found, create a new crop entry
+      const newCrop = {
+        cropName,
+        quantity,
+        price,
+        description,
+        place,
+        images,
+      };
+
+      farmer.crops.push(newCrop);
+    } else {
+      // Crop found, update the existing crop entry
+      const existingCrop = farmer.crops[cropIndex];
+      existingCrop.quantity = quantity;
+      existingCrop.price = price;
+      existingCrop.description = description;
+      existingCrop.images = images;
+    }
+
+    // Save the updated farmer document (either new or existing)
+    await farmer.save();
+
+    // Send a success response
+    return res.status(200).json({ message: 'Crop information updated' });
+  } catch (error) {
+    console.error('Error updating crop information:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+
+
 const displayCropsForSale = async (req, res) => {
   try {
     // Query the Farmer collection to get crops for sale
@@ -77,12 +146,11 @@ const displayCropsForSale = async (req, res) => {
           description: crop.description,
           quantity: crop.quantity,
           price: crop.price,
+          place: crop.place,
           image: crop.images,
           farmer: {
-            firstName: farmer.firstName,
-            lastName: farmer.lastName,
+            name: farmer.name,
             email: farmer.email,
-            address: farmer.address,
             phoneNumber: farmer.phoneNumber
             // Add more farmer details as needed
           },

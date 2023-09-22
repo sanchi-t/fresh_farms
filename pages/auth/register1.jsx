@@ -212,10 +212,14 @@ export default function Register() {
                 We are more than just a company
               </h4>
               <p className="text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+              Welcome to the Fresh Farms, where agriculture meets technology for a brighter and more prosperous future. 
+              At Fresh Farms, we understand that farmers are the backbone of our nation, and their hard work fuels our economy.
+              We are committed to empowering farmers with the tools and knowledge they need to thrive in an ever-evolving agricultural landscape.
+
+              Our journey began with a simple yet powerful idea: to connect farmers with retailers and create a marketplace that enhances accessibility and profitability. 
+              Through Fresh Farms, you can directly connect with retailers, negotiate fair prices, and secure markets for your produce. 
+              No more intermediaries, no more uncertainties. 
+              We are here to bridge the gap between you and the market, making your agricultural endeavors more lucrative and efficient.
               </p>
             </div>
           </div>
