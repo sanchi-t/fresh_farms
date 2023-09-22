@@ -1,4 +1,4 @@
-import ConnectDB from "@/DB/connectDB";
+import ConnectDB from "@/components/DB/connectDB";
 import User from "@/models/User";
 import Joi from "joi";
 import { hash } from "bcryptjs";

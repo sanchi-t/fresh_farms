@@ -1,4 +1,4 @@
-import ConnectDB from '@/DB/connectDB';
+import ConnectDB from '@/components/DB/connectDB';
 import Joi from 'joi';
 import AppliedJob from '@/models/ApplyJob';
 import formidable from 'formidable';

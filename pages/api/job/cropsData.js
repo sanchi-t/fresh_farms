@@ -1,4 +1,4 @@
-import ConnectDB from '@/DB/connectDB';
+import connectDB from '@/components/DB/connectDB'
 import Farmer from '@/models/Farmer';
 import validateToken from '@/middleware/tokenValidation';
 import Joi from 'joi';
@@ -13,7 +13,7 @@ const schema = Joi.object({
 });
 
 export default async (req, res) => {
-  await ConnectDB();
+  await connectDB();
   const { method } = req;
   switch (method) {
     case 'POST':
