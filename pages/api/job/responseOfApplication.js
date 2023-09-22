@@ -1,4 +1,4 @@
-import ConnectDB from '@/DB/connectDB';
+import ConnectDB from '@/components/DB/connectDB';
 import validateToken from '@/middleware/tokenValidation';
 import AppliedJob from '@/models/ApplyJob';
 

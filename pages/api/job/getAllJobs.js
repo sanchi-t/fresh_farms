@@ -1,4 +1,4 @@
-import ConnectDB from '@/DB/connectDB';
+import ConnectDB from '@/components/DB/connectDB';
 import Job from '@/models/Job';
 
 
