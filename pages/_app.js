@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Cookies from 'js-cookie';
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -33,6 +34,7 @@ export default function App({
   return (
     <Provider store={store}>
       <Component {...pageProps} />
+      <ToastContainer />
     </Provider>
   )
 }

@@ -17,6 +17,17 @@ export default function Trade() {
   const allCrops = useSelector((state) => state?.Crops?.cropData);
   const [filteredCrops, setFilteredCrops] = useState(allCrops); // Initialize filteredCrops with allCrops
 
+  const uniqueCropsSet = new Set();
+
+  const uniqueCrops = allCrops.filter((crop) => {
+    const lowerCaseCropName = crop.cropName.toLowerCase();
+    if (!uniqueCropsSet.has(lowerCaseCropName)) {
+      uniqueCropsSet.add(lowerCaseCropName);
+      return true;
+    }
+    return false;
+  });
+
   useEffect(() => {
     if (!Cookies.get('token')) {
       router.push('/auth/login');
@@ -87,9 +98,9 @@ export default function Trade() {
           <div className='w-full h-screen pt-20 flex items-center justify-start flex-row'>
             <div className='w-30% h-full p-4'>
               {/* Filter Panel */}
-              <div className='bg-white p-4 rounded-lg shadow'>
+              <div className='bg-white p-4 rounded-lg shadow' style={{width:'max-content'}}>
                 <h2 className='text-xl font-semibold mb-2'>Filter Crops</h2>
-                {allCrops.map((crop) => (
+                {uniqueCrops.map((crop) => (
                   <label key={crop.cropName} className='block mb-2'>
                     <input
                       type='checkbox'

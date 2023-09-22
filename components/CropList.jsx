@@ -19,7 +19,7 @@ const CropList = ({ crops }) => {
     <div className="d-flex justify-content-center row">
       {filteredCrops.map((crop) => (
         <div
-          key={crop._id}
+          key={crop._id+crop.cropName}
           className="w-2/3 h-48 bg-white-200 border-2 border-slate-200 rounded-lg flex flex-row mx-auto mt-6"
         >
             <div className="w-3/12 h-full">
@@ -34,7 +34,7 @@ const CropList = ({ crops }) => {
               {/* Display location icon and farmer address */}
               <div className="px-4 flex items-center">
                 <FaMapMarkerAlt className="mr-1 text-[#A0D8B3]" />
-                <span>{crop.farmer.address}</span>
+                <span>{crop.place}</span>
               </div>
               {/* Display "Posted by Farmer's First Name" */}
               
@@ -65,7 +65,7 @@ const CropList = ({ crops }) => {
                     </div>
                   </Link>
                     <div className="px-4 text-slate-500">
-                posted by {crop.farmer.firstName}
+                posted by {crop.farmer.name}
               </div>
                 </div>
             </div>

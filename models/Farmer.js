@@ -1,11 +1,7 @@
 import mongoose from "mongoose";
 
 const farmerSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
+  name: {
     type: String,
     required: true,
   },
@@ -30,7 +26,7 @@ const farmerSchema = new mongoose.Schema({
       },
       description: {
         type: String,
-        required: true,
+        required: false,
       },      
       quantity: {
         type: Number,
@@ -38,6 +34,10 @@ const farmerSchema = new mongoose.Schema({
       },
       price: {
         type: Number,
+        required: true,
+      },
+      place: {
+        type: String,
         required: true,
       },
       images:{
