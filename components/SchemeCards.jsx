@@ -49,15 +49,31 @@ const SchemeCards = ({ data }) => {
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <a
+      {(data.apply.startsWith('http://') || data.apply.startsWith('https://'))?(
+        <a
         href={data.apply}
         target="_blank"
         rel="noopener noreferrer"
         className="text-blue-500 hover:underline mt-4 block"
         style={applyLinkStyle}
       >
-        Apply Here
+       
+       Apply Here
       </a>
+      ):(
+        <a
+        
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline mt-4 block"
+        style={applyLinkStyle}
+      >
+       
+       {data.apply}
+      </a>
+      )
+      }
+      
     </div>
     </div>
   );

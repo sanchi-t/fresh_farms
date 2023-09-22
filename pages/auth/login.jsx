@@ -54,7 +54,7 @@ export default function Login() {
   return (
     <>
     <NavBar />
-    <div className='w-full h-screen bg-indigo-600'>
+    <div className='w-full h-screen bg-white-600'>
       <div className="flex flex-col items-center  text-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
         <div className="w-full bg-white text-black rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
