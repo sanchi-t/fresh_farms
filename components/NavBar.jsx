@@ -92,7 +92,7 @@ export default function NavBar() {
                 </div>
                 <div className='px-2 h-full hidden items-center justify-center lg:flex'>
                     <Link href={'/'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Home</Link>
-                    <Link href={'/frontend/postAJob'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Post Jobs</Link>
+                    {/* <Link href={'/frontend/postAJob'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Post Jobs</Link> */}
                     <Link href={'/frontend/displayBlogs'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Blogs</Link>
                     <Link href={'/frontend/postedProduct'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Post Products</Link>
                     <Link href={'/frontend/schemes'} className="px-3 mx-4 text-base font-medium transition-all duration-700 hover:translate-y-2 uppercase" >Schemes</Link>

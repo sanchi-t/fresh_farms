@@ -19,7 +19,7 @@ export const fetchCrops = async () => {
 };
 
 // Bookmark a crop
-export const modifyCrops = async (_id,cropName,quantity) => {
+export const modifyCrops = async (_id,cropName,quantity, name, email, price, place) => {
   try {
     const res = await fetch("/api/job/cropsData", {
       method: "PUT",
@@ -31,6 +31,10 @@ export const modifyCrops = async (_id,cropName,quantity) => {
         farmerId: _id,
         cropName: cropName,
         quantity,
+        name: name,
+        email: email,
+        price: price,
+        place: place,
       }),
     });
 

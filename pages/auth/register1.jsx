@@ -6,6 +6,7 @@ import { register_me } from "@/Services/auth";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 export default function Register() {
   const router = useRouter();
@@ -227,6 +228,7 @@ export default function Register() {
 
         <ToastContainer />
       </div>
+      <Footer/>
     </>
   );
 }
