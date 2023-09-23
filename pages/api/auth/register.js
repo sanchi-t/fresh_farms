@@ -27,6 +27,7 @@ export default async (req, res) => {
     contact,
   });
    console.log(req.body);
+  
 
   if (error)
     return res.status(401).json({
