@@ -78,6 +78,9 @@ export default function PostedJobs() {
         const response = await userCrops(email);
         console.log(response);
         setUserCrop(response.user.crops);
+        if(!response.success){
+          setUserCrop(response.user);
+        }
       } catch (error) {
         console.error('Error fetching user crops:', error);
       }
