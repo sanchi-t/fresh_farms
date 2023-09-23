@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useRouter } from 'next/router';
 import { InfinitySpin } from 'react-loader-spinner';
 import NavBar from '@/components/NavBar';
-
+import Footer from '@/components/Footer';
 
 
 
@@ -187,6 +187,7 @@ export default function ApplicationsDetail() {
 
                 
                         </div>
+                        <Footer/>
                        
 
                     </>

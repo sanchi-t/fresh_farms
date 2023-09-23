@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from '@/components/Footer';
 
 export default function ForgetPassword() {
   const Router = useRouter();
@@ -84,6 +85,7 @@ export default function ForgetPassword() {
         </div>
         <ToastContainer />
       </section>
+      <Footer/>
     </>
   )
 }

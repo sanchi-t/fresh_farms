@@ -10,6 +10,7 @@ import useSWR from "swr";
 import { get_job } from "@/Services/job";
 import { setJobData } from "@/Utils/JobSlice";
 import { InfinitySpin } from "react-loader-spinner";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -67,9 +68,10 @@ export default function Home() {
       ) : (
         <>
           <NavBar />
-          <div className="w-full h-screen bg-gray-200  text-black">
+          <div className="w-full h-screen bg-gray-200  text-black" style={{marginBottom:'5rem'}}>
             <Intro />
           </div>
+          <Footer></Footer>
         </>
       )}
     </>

@@ -24,7 +24,7 @@ export default function Intro() {
 
   return (
     <>
-      <div className="w-full  h-full flex items-center lg:justify-start py-20 justify-center flex-wrap  ">
+      <div className="w-full  h-full flex items-center lg:justify-start py-20 justify-center flex-wrap my-12 ">
         <div className="lg:w-3/6 w-full sm:p-2 h-full my-2 flex items-center justify-center px-2 md:items-start md:justify-start md:p-20 flex-col ">
           <h1 className="md:text-6xl text-2xl sm:text-2xl font-extrabold mb-8 mt-[-50px] text-black ">
             Connecting Fields <span className="text-green-600 ">To Shelves.</span>{" "}

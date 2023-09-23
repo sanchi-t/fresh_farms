@@ -9,6 +9,7 @@ import {
     FaMapMarkerAlt,
     FaWeightHanging,
   } from 'react-icons/fa';
+import Footer from '@/components/Footer';
 export default function PostedJobs() {
     
     
@@ -292,6 +293,7 @@ export default function PostedJobs() {
           </div>
         </>
       )}
+      <Footer/>
     </>
   );
 }
