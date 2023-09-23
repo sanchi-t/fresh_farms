@@ -120,7 +120,7 @@ export default function PostedJobs() {
                     </a>
                   </li>
                   <li className="py-1 md:my-2 hover:bg-yellow-100 lg:hover:bg-transparent border-l-4 border-transparent border-transparent font-bold border-yellow-600">
-                    <a href='#section2' className="block pl-4 align-middle text-gray-700 no-underline hover:text-yellow-600">
+                    <a href='#section2' className="block pl-4 align-middle text-gray-700 no-underline hover:text-green-600">
                       <span className="pb-1 md:pb-0 text-sm">Your Products</span>
                     </a>
                   </li>
@@ -137,133 +137,90 @@ export default function PostedJobs() {
 
               <h2  className="font-sans font-bold break-normal text-gray-700 px-2 pb-8 text-xl">Add Crop Product</h2>
 
-              <div id='section1' className="p-8 mt-6 lg:mt-0 rounded shadow bg-[#D0F5BE] w-3/4">
-                <form className='grid grid-cols-2 gap-0' onSubmit={handleSubmit}>
-                    <div className='other-column'>
-                  <div className="md:flex mb-6">
-                    <div className="md:w-[8rem]">
-                      <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-2">
-                        Crop Name
-                      </label>
-                    </div>
-                    <div className="md:w-3/6">
-                      <input
-                        className="form-input block w-full  focus:bg-white"
-                        type="text"
-                        name="cropName"
-                        value={formData.cropName}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
+              <div id="section1" className="p-8 mt-6 lg:mt-0 rounded-lg shadow-lg bg-[#] w-3/4 font-Quicksand">
+  <form className="grid grid-cols-2 gap-4" onSubmit={handleSubmit}>
+    <div className="md:flex flex-col mb-4">
+      <label className="block text-gray-600 font-semibold mb-2 md:text-left">Crop Name</label>
+      <input
+        className="form-input w-full focus:bg-white"
+        type="text"
+        name="cropName"
+        value={formData.cropName}
+        onChange={handleChange}
+        required
+      />
+    </div>
 
-                  <div className="md:flex mb-6">
-                    <div className="md:w-[8rem]">
-                      <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-2">
-                        Image Url
-                      </label>
-                    </div>
-                    <div className="md:w-3/6">
-                      <input
-                        className="form-input block w-full  focus:bg-white"
-                        type="text"
-                        name="cropImage"
-                        value={formData.cropImage}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  
+    <div className="md:flex flex-col mb-4">
+      <label className="block text-black-600 font-bold mb-2 md:text-left fontSize:20px fontFamily:Quicksand">Image URL</label>
+      <input
+        className="form-input w-full focus:bg-white"
+        type="text"
+        name="cropImage"
+        value={formData.cropImage}
+        onChange={handleChange}
+        required
+      />
+    </div>
 
-                  
+    <div className="md:flex flex-col mb-4">
+      <label className="block text-gray-600 font-semibold mb-2 md:text-left">Price</label>
+      <input
+        className="form-input w-full focus:bg-white"
+        type="number"
+        name="price"
+        value={formData.price}
+        onChange={handleChange}
+        required
+      />
+    </div>
 
-                  <div className="md:flex mb-6">
-                    <div className="md:w-[8rem]">
-                      <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4">
-                        Price
-                      </label>
-                    </div>
-                    <div className="md:w-3/6">
-                      <input
-                        className="form-input block w-full focus:bg-white border-2 drop-shadow-md"
-                        type="number"
-                        name="price"
-                        value={formData.price}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="md:flex mb-6">
-                    <div className="md:w-[8rem]">
-                      <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4">
-                        Quantity in Kgs
-                      </label>
-                    </div>
-                    <div className="md:w-3/6">
-                      <input
-                        className="form-input block w-full focus:bg-white border-2 drop-shadow-md"
-                        type="number"
-                        name="quantity"
-                        value={formData.quantity}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
+    <div className="md:flex flex-col mb-4">
+      <label className="block text-gray-600 font-semibold mb-2 md:text-left">Quantity in Kgs</label>
+      <input
+        className="form-input w-full focus:bg-white"
+        type="number"
+        name="quantity"
+        value={formData.quantity}
+        onChange={handleChange}
+        required
+      />
+    </div>
 
-                  
-                  </div>
-                <div className='form-column'>
-                <div className="md:flex mb-6">
-                    <div className="md:w-[8rem]">
-                      <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-2">
-                        Place
-                      </label>
-                    </div>
-                    <div className="md:w-3/6">
-                      <input
-                        className="form-input block w-full  focus:bg-white"
-                        type="text"
-                        name="cropPlace"
-                        value={formData.cropPlace}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                <div className="md:flex mb-6">
-                    <div className="md:w-[8rem]">
-                      <label className="block text-gray-600 font-bold md:text-left mb-3 md:mb-0 pr-4">
-                        Description
-                      </label>
-                    </div>
-                    <div className="md:w-4/6">
-                      <textarea
-                        className="form-textarea block w-full focus:bg-[#F8F6F4] border-2 drop-shadow-md"
-                        name="description"
-                        value={formData.description}
-                        onChange={handleChange}
-                        required
-                        rows="4"
-                      />
-                    </div>
-                  </div>
-                  </div>
+    <div className="md:flex flex-col mb-4">
+      <label className="block text-gray-600 font-semibold mb-2 md:text-left">Place</label>
+      <input
+        className="form-input w-full focus:bg-white"
+        type="text"
+        name="cropPlace"
+        value={formData.cropPlace}
+        onChange={handleChange}
+        required
+      />
+    </div>
 
-                  <div className="md:flex md:items-center">
-                    <div className="md:w-1/3"></div>
-                    <div className="md:w-2/3">
-                      <button className="shadow bg-yellow-700 hover:bg-yellow-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
-                        Save
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              
+    <div className="md:flex flex-col mb-4">
+      <label className="block text-gray-600 font-semibold mb-2 md:text-left">Description</label>
+      <textarea
+        className="form-textarea w-full focus:bg-[#F8F6F4] border-2 rounded-lg resize-none"
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+        required
+        rows="4"
+      />
+    </div>
+
+    <div className="md:flex md:items-center">
+      <div className="md:w-1/3"></div>
+      <div className="md:w-2/3">
+        <button className="shadow bg-yellow-700 hover:bg-green-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded-full" type="submit">
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
 
 
               <hr className="bg-gray-300 my-12" />
