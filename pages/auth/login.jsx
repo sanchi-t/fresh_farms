@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import { useDispatch } from 'react-redux';
 import { setUserData } from '@/Utils/UserSlice';
 import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 
 export default function Login() {
@@ -97,6 +98,7 @@ export default function Login() {
       </div>
       <ToastContainer />
     </div>
+    <Footer/>
     </>
   )
 }

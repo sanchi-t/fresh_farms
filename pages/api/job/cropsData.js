@@ -3,6 +3,7 @@ import Farmer from '@/models/Farmer';
 import User from '@/models/User';
 import validateToken from '@/middleware/tokenValidation';
 import Joi from 'joi';
+import Transaction from '@/models/Transaction';
 
 const schema = Joi.object({
   cropName: Joi.string().required(),
@@ -39,7 +40,7 @@ export default async (req, res) => {
 
 const boughtCropFromSale = async (req, res) => {
   try {
-    const { farmerId, cropName, quantity } = req.body;
+    const { farmerId, cropName, quantity, name, email, price, place } = req.body;
     console.log(req.body,'gvhjxcbscbdsbcsdjdb');
     // Find the farmer and crop
     const farmer = await Farmer.findById(farmerId);
@@ -60,6 +61,18 @@ const boughtCropFromSale = async (req, res) => {
     // Update the crop quantity in the database
     crop.quantity -= quantity;
     await farmer.save();
+    const trans={
+      name: name,
+      email: email,
+      crop: cropName,
+      quantity: quantity,
+      price: price,
+      place: place,
+      orderedAt: new Date(),
+
+    }
+    const transaction = new Transaction(trans); // Create a new transaction document
+    await transaction.save();
 
     // Send a success response
     return res.status(200).json({ message: 'Purchase successful' });

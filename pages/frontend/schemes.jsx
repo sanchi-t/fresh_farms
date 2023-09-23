@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SchemeCards from '@/components/SchemeCards';
 import jsonData from '@/schemes[1].json'; // Import your JSON data file
 import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 function Schemes() {
   const [data, setData] = useState([]);
@@ -30,6 +31,7 @@ function Schemes() {
       ))}
     </div>
     </div>
+    <Footer/>
     </div>
   );
 }

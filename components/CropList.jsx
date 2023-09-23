@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-
+import Footer from './Footer';
 import {
   FaMapMarkerAlt,
   FaWeightHanging,
@@ -72,6 +72,7 @@ const CropList = ({ crops }) => {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };
