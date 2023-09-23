@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar';
 import { useState, useEffect } from 'react';
 import { modifyCrops } from '@/Services/job/cropsData';
 import { InfinitySpin } from 'react-loader-spinner';
+import { BiBold } from 'react-icons/bi';
 
 const ProductDetailsPage = ({ farmer, crop }) => {
   const router = useRouter();
@@ -61,10 +62,10 @@ const ProductDetailsPage = ({ farmer, crop }) => {
       ) : (
         <div>
           <NavBar />
-          <div className="w-full py-20 flex items-center md:px-8 px-2 justify-center flex-col">
-            <h1 className="px-4 mx-2 py-2 uppercase tracking-wider border-b-2 border-b-indigo-600 text-3xl font-semibold">
+          <div style={{fontFamily:'Quicksand',maxWidth:'1900px'}} className="w-full py-20 flex items-center md:px-12 px-2 justify-center flex-col">
+            {/* <h1 className="px-4 mx-2 py-2 uppercase tracking-wider border-b-2 border-b-indigo-600 text-3xl font-semibold">
               {crop.cropName}
-            </h1>
+            </h1> */}
             <div className="w-full h-full py-4 flex overflow-y-auto items-center justify-center flex-wrap">
               <div className="max-w-5xl mx-auto p-4">
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -72,32 +73,33 @@ const ProductDetailsPage = ({ farmer, crop }) => {
                     <img
                       src={crop.images}
                       alt={crop.cropName}
-                      className="rounded-lg sm:w-1/3 sm:object-cover sm:object-center"
+                      className="rounded-lg sm:w-2/4 sm:object-cover sm:object-center"
                     />
                     <div className="sm:ml-6 mt-4 sm:mt-0">
-                      <h2 className="text-2xl font-semibold text-gray-800">
+                      <h2 style={{ fontSize: '28px', fontWeight:'bold'}} className="text-2xl font-semibold text-gray-800">
                         {crop.cropName}
                       </h2>
-                      <p className="text-sm text-gray-600">
+                      <p style={{ fontSize: '18px', fontWeight:'bold'}} className="text-sm text-gray-600 mt-4">
                         Description: {crop.description}
                       </p>
-                      <p className="text-sm text-gray-600">
+                      <p style={{ fontSize: '18px', fontWeight:'bold'}} className="text-sm text-gray-600 mt-4">
                         Quantity: {crop.quantity}kg
                       </p>
-                      <p className="text-sm text-gray-600">
+                      <p style={{ fontSize: '18px', fontWeight:'bold'}} className="text-sm text-gray-600 mt-4">
                         Price: ₹{crop.price}/kg
                       </p>
-                      <p className="text-sm text-gray-600">
+                      <p style={{ fontSize: '18px', fontWeight:'bold'}} className="text-sm text-gray-600 mt-4">
                         Location: {farmer.address}
                       </p>
-                      <p className="text-sm text-gray-600">
+                      <p style={{ fontSize: '18px', fontWeight:'bold'}} className="text-sm text-gray-600 mt-4">
                         Posted by: {farmer.firstName} {farmer.lastName}
                       </p>
                       <div className="mt-4">
-                        <label className="text-sm text-gray-600">
+                        <label style={{ fontSize: '18px', fontWeight:'bold'}} className="text-sm text-gray-600 mt-4 ">
                           Quantity (kg):
                         </label>
                         <input
+                        style={{ fontSize: '18px', fontWeight:'bold' }} 
                           type="number"
                           min="1"
                           max={crop.quantity}
@@ -106,11 +108,12 @@ const ProductDetailsPage = ({ farmer, crop }) => {
                           className="w-16 px-2 py-1 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
                         />
                       </div>
-                      <p className="text-sm text-gray-600 mt-2">
+                      <p style={{ fontSize: '18px', fontWeight:'bold'}} className="text-sm text-gray-600 mt-4">
                         Total Price: ₹{calculateTotalPrice()}
                       </p>
                       <button
                         onClick={handleBuyNow}
+                        style={{ fontSize: '18px', fontWeight:'bold',}}
                         className="mt-4 px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-200"
                       >
                         Buy Now
